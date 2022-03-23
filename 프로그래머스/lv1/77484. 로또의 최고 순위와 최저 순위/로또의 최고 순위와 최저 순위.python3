@@ -1,0 +1,16 @@
+def solution(lottos, win_nums):
+    answer = [0,0]
+    check=[0,0]
+    for i in lottos:
+        if i>0:
+            if i in win_nums:
+                check[0]+=1
+                check[1]+=1
+        if i==0:
+            check[1]+=1
+    for i in range(2):
+        if check[i]>=2:
+            answer[1-i]=7-check[i]
+        else:
+            answer[1-i]=6
+    return answer
